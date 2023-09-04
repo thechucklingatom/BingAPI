@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css'
+import SearchResults, { BingApiResults } from './SearchResults';
 
 function Search() {
   const [searchText, setSearchText] = useState('');
@@ -28,7 +29,7 @@ function Search() {
       </label>
       <button onClick={searchForStuff}>Search</button>
 
-      {searchResponse && JSON.stringify(searchResponse)} 
+      {searchResponse ? <SearchResults {...searchResponse as BingApiResults}/> : <p>No search data yet</p>}  
     </>
   )
 }
